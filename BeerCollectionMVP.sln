@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Moq", "Moq", "{29B78CBC-A79D-4A75-87FB-F04E7DD5B596}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\Moq\Moq.chm = Dependencies\Moq\Moq.chm
+		Dependencies\Moq\Moq.dll = Dependencies\Moq\Moq.dll
+		Dependencies\Moq\Moq.pdb = Dependencies\Moq\Moq.pdb
+		Dependencies\Moq\Moq.xml = Dependencies\Moq\Moq.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MbUnit", "MbUnit", "{38D76225-D1C9-43EB-9C4D-83B0CF1424D0}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\MbUnit\Gallio.dll = Dependencies\MbUnit\Gallio.dll
+		Dependencies\MbUnit\Gallio.pdb = Dependencies\MbUnit\Gallio.pdb
+		Dependencies\MbUnit\Gallio.plugin = Dependencies\MbUnit\Gallio.plugin
+		Dependencies\MbUnit\Gallio.xml = Dependencies\MbUnit\Gallio.xml
+		Dependencies\MbUnit\Gallio40.dll = Dependencies\MbUnit\Gallio40.dll
+		Dependencies\MbUnit\Gallio40.pdb = Dependencies\MbUnit\Gallio40.pdb
+		Dependencies\MbUnit\Gallio40.plugin = Dependencies\MbUnit\Gallio40.plugin
+		Dependencies\MbUnit\Gallio40.xml = Dependencies\MbUnit\Gallio40.xml
+		Dependencies\MbUnit\MbUnit.dll = Dependencies\MbUnit\MbUnit.dll
+		Dependencies\MbUnit\MbUnit.dll.tdnet = Dependencies\MbUnit\MbUnit.dll.tdnet
+		Dependencies\MbUnit\MbUnit.pdb = Dependencies\MbUnit\MbUnit.pdb
+		Dependencies\MbUnit\MbUnit.plugin = Dependencies\MbUnit\MbUnit.plugin
+		Dependencies\MbUnit\MbUnit.xml = Dependencies\MbUnit\MbUnit.xml
+		Dependencies\MbUnit\MbUnit40.dll = Dependencies\MbUnit\MbUnit40.dll
+		Dependencies\MbUnit\MbUnit40.pdb = Dependencies\MbUnit\MbUnit40.pdb
+		Dependencies\MbUnit\MbUnit40.plugin = Dependencies\MbUnit\MbUnit40.plugin
+		Dependencies\MbUnit\MbUnit40.xml = Dependencies\MbUnit\MbUnit40.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCollectionMVP.Tests", "BeerCollectionMVP.Tests\BeerCollectionMVP.Tests.csproj", "{5462E8DE-64E3-4A20-B2DD-57330B0EF02D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9573EF5-CCE5-4C50-89B5-B6F503322832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9573EF5-CCE5-4C50-89B5-B6F503322832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9573EF5-CCE5-4C50-89B5-B6F503322832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9573EF5-CCE5-4C50-89B5-B6F503322832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5462E8DE-64E3-4A20-B2DD-57330B0EF02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5462E8DE-64E3-4A20-B2DD-57330B0EF02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5462E8DE-64E3-4A20-B2DD-57330B0EF02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5462E8DE-64E3-4A20-B2DD-57330B0EF02D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29B78CBC-A79D-4A75-87FB-F04E7DD5B596} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+		{38D76225-D1C9-43EB-9C4D-83B0CF1424D0} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+	EndGlobalSection
+EndGlobal
