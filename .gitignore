@@ -16,3 +16,4 @@ UpgradeLog.XML
 *.7z
 Database/sql
 TestResults
+Local.testsettings
