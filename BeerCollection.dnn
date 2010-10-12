@@ -1,0 +1,96 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="BeerCollection" type="Module" version="1.0.0">
+      <friendlyName>BeerCollection</friendlyName>
+      <description>WebFormsMVP Demo</description>
+      <owner>
+        <name />
+        <organization />
+        <url />
+        <email />
+      </owner>
+      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>BeerCollection</moduleName>
+            <foldername>BeerCollection</foldername>
+            <businessControllerClass />
+            <supportedFeatures />
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>AddBeer</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/BeerCollection/AddBeer.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+              <moduleDefinition>
+                <friendlyName>BeerCollection</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/BeerCollection/BeerCollection.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+              <moduleDefinition>
+                <friendlyName>BeersToDrinkSoon</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/BeerCollection/BeersToDrinkSoon.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <basePath>bin</basePath>
+            <assembly>
+              <name>BeerCollection.dll</name>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\BeerCollection</basePath>
+            <file>
+              <name>BeerCollection.ascx</name>
+            </file>
+            <file>
+              <name>BeersToDrinkSoon.ascx</name>
+            </file>
+            <file>
+              <name>AddBeer.ascx</name>
+            </file>
+          </files>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>
