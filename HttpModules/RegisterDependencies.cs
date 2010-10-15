@@ -12,7 +12,7 @@
             {
                 ComponentFactory.Container = new SimpleContainer();
             }
-            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>();
+            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>("BeerRepository", ComponentLifeStyleType.Transient);
         }
 
         public void Init(HttpApplication context)
