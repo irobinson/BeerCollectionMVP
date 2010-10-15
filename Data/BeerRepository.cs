@@ -1,11 +1,11 @@
-﻿namespace BeerCollection
+﻿namespace BeerCollection.Data
 {
+    using System.Configuration;
     using System.Linq;
-    using Data;
 
     public class BeerRepository : IBeerRepository
     {
-        public BeerRepository() : this(new DbDataContext())
+        public BeerRepository() : this(new DbDataContext(ConfigurationManager.ConnectionStrings["SiteSqlServer"].ConnectionString))
         {
         }
 
