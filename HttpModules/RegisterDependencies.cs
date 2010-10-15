@@ -6,14 +6,9 @@
 
     public class BeerCollectionModule : IHttpModule
     {
-        public string ModuleName
-        {
-            get { return "BeerCollectionModule"; }
-        }
-
         static BeerCollectionModule()
         {
-            if(ComponentFactory.Container == null)
+            if (ComponentFactory.Container == null)
             {
                 ComponentFactory.Container = new SimpleContainer();
             }
@@ -26,6 +21,6 @@
 
         public void Dispose()
         {
-        }
+        } 
     }
 }
