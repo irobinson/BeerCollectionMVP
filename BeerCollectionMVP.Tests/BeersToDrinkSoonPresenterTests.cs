@@ -13,19 +13,34 @@
     [TestFixture]
     public class BeersToDrinkSoonPresenterTests
     {
+        private Mock<IViewBeersToDrinkSoon> view;
+        private Mock<IBeerRepository> service;
+        private BeersToDrinkSoonPresenter presenter;
+        private MessageCoordinator messageCoordinator;
+
+        // [MethodName]_[StateUnderTest]_[ExpectedBehavior]
+
+        [SetUp]
+        public void SetUp()
+        {
+           view = new Mock<IViewBeersToDrinkSoon>();
+           service = new Mock<IBeerRepository>();
+           messageCoordinator = new MessageCoordinator();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            
+        }
+
         [Test]
-        public void BeerCollection_From_Service_When_No_Message_Published()
+        public void ViewLoad_NoCollectionMessagePublished_LoadsCollectionFromService()
         {
             // Arrange
-            var view = new Mock<IViewBeersToDrinkSoon>();
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
-
-            var service = new Mock<IBeerRepository>();
             service.Setup(x => x.GetBeers()).Returns(new List<Beer>().AsQueryable); 
-
-            var presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object);
-            var messageCoordinator = new MessageCoordinator();
-            presenter.Messages = messageCoordinator;
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
 
             // Act
             view.Raise(x => x.Load += null, null, null);
@@ -34,23 +49,17 @@
 
             // Assert
             Assert.IsNotNull(view.Object.Model.BeerCollection);
-            service.Verify();
         }
 
         [Test]
-        public void BeerCollection_Not_From_Service_When_Published()
+        public void ViewLoad_CollectionMessagePublished_DoesNotLoadFromService()
         {
             //Arrange
-            var view = new Mock<IViewBeersToDrinkSoon>();
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
 
-            var service = new Mock<IBeerRepository>();
-            var presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object);
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
             var beerList = new List<Beer> {new Beer {BeerId = 1, Name = "Test Beer"}};
-
-            var messageCoordinator = new MessageCoordinator();
-            presenter.Messages = messageCoordinator;
-
+            
             //Act
             view.Raise(x => x.Load += null, null, null);
             messageCoordinator.Publish(beerList);
@@ -58,18 +67,15 @@
             presenter.ReleaseView();
 
             //Assert
-            Assert.IsNotNull(view.Object.Model.BeerCollection);
             service.Verify(x => x.GetBeers(), Times.Never());
+            Assert.IsNotNull(view.Object.Model.BeerCollection);
         }
 
         [Test]
-        public void Presenter_Filters_Out_Beers_That_Are_Consumed()
+        public void SetModel_ServiceResultHasConsumedBeers_FiltersOutBeersThatAreConsumed()
         {
             //Arrange
-            var view = new Mock<IViewBeersToDrinkSoon>();
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
-
-            var service = new Mock<IBeerRepository>();
 
             var beer1 = new Beer { BeerId = 1, Name = "Bigfoot", IsConsumed = true };
             var beer2 = new Beer { BeerId = 2, Name = "Yeti", IsConsumed = false };
@@ -77,9 +83,7 @@
 
             service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
 
-            var presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object);
-            var messageCoordinator = new MessageCoordinator();
-            presenter.Messages = messageCoordinator;
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
 
             //Act
             view.Raise(x => x.Load += null, null, null);
@@ -88,34 +92,6 @@
 
             //Assert
             Assert.DoesNotContain(view.Object.Model.BeerCollection, beer1); 
-        }
-
-        [Test]
-        public void Presenter_Filters_Collection_Down_To_Three_Beers()
-        {
-            //Arrange
-            var view = new Mock<IViewBeersToDrinkSoon>();
-            view.Setup(v => v.Model).Returns(new BeerCollectionModel());
-
-            var service = new Mock<IBeerRepository>();
-
-            var beer1 = new Beer { BeerId = 1, Name = "Bigfoot", IsConsumed = true };
-            var beer2 = new Beer { BeerId = 2, Name = "Yeti", IsConsumed = false };
-            var beerList = new List<Beer> { beer1, beer2 };
-
-            service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
-
-            var presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object);
-            var messageCoordinator = new MessageCoordinator();
-            presenter.Messages = messageCoordinator;
-
-            //Act
-            view.Raise(x => x.Load += null, null, null);
-            presenter.ReleaseView();
-            messageCoordinator.Close();
-
-            //Assert
-            Assert.DoesNotContain(view.Object.Model.BeerCollection, beer1);
         }
     }
 }

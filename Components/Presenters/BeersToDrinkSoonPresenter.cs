@@ -19,10 +19,10 @@
         public BeersToDrinkSoonPresenter (IViewBeersToDrinkSoon view, IBeerRepository repository) : base(view)
         {
             beerRepository = repository;
-            this.View.Load += View_Load;
+            this.View.Load += ViewLoad;
         }
 
-        void View_Load(Object sender, EventArgs eventArgs)
+        void ViewLoad(Object sender, EventArgs eventArgs)
         {
             Messages.Subscribe<List<Beer>>(beers => SetModel(beers), () => SetModel(beerRepository.GetBeers().ToList()));
         }

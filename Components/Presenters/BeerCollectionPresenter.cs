@@ -19,10 +19,10 @@
         public BeerCollectionPresenter (IViewBeerCollection view, IBeerRepository repository) : base(view)
         {
             beerRepository = repository;
-            this.View.Load += View_Load;
+            this.View.Load += ViewLoad;
         }
 
-        void View_Load(Object sender, EventArgs eventArgs)
+        void ViewLoad(Object sender, EventArgs eventArgs)
         {
             List<Beer> beers = beerRepository.GetBeers().ToList();
             View.Model.HasBeers = beers.Count > 0;
