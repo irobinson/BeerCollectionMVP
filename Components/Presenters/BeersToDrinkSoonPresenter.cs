@@ -10,7 +10,7 @@
 
     public class BeersToDrinkSoonPresenter : ModulePresenter<IViewBeersToDrinkSoon, BeerCollectionModel>
     {    
-        private IBeerRepository beerRepository;
+        private readonly IBeerRepository beerRepository;
 
         public BeersToDrinkSoonPresenter(IViewBeersToDrinkSoon view) : this(view, ComponentFactory.GetComponent<IBeerRepository>())
         {
@@ -24,13 +24,13 @@
 
         void ViewLoad(Object sender, EventArgs eventArgs)
         {
-            Messages.Subscribe<List<Beer>>(beers => SetModel(beers), () => SetModel(beerRepository.GetBeers().ToList()));
+            Messages.Subscribe<List<Beer>>(SetModel, () => SetModel(beerRepository.GetBeers().ToList()));
         }
 
         private void SetModel(List<Beer> beers)
         {
             View.Model.BeerCollection = beers.OrderBy(b => b.DrinkBy).Take(3).Where(b => !b.IsConsumed).ToList();
-            View.Model.HasBeers = beers.Count > 0;
+            View.Model.HasBeers = View.Model.BeerCollection.Count > 0;
         }
     }
 }
