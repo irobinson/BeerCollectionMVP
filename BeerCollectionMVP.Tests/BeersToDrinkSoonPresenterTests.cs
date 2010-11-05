@@ -68,11 +68,10 @@
 
             //Assert
             service.Verify(x => x.GetBeers(), Times.Never());
-            Assert.IsNotNull(view.Object.Model.BeerCollection);
         }
 
         [Test]
-        public void SetModel_ServiceResultHasConsumedBeers_FiltersOutBeersThatAreConsumed()
+        public void SetModel_ServiceResultHasConsumedBeers_RemovesConsumedBeers()
         {
             //Arrange
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
@@ -91,7 +90,32 @@
             messageCoordinator.Close();
 
             //Assert
-            Assert.DoesNotContain(view.Object.Model.BeerCollection, beer1); 
+            Assert.DoesNotContain(view.Object.Model.BeerCollection, beer1);
+        }
+
+        [Test]
+        public void SetModel_ServiceResultIsGreaterThanThre_ReturnsThreeBeers()
+        {
+            //Arrange
+            view.Setup(v => v.Model).Returns(new BeerCollectionModel());
+
+            var beer1 = new Beer { BeerId = 1, Name = "Bigfoot", IsConsumed = false };
+            var beer2 = new Beer { BeerId = 2, Name = "Yeti", IsConsumed = false };
+            var beer3 = new Beer { BeerId = 3, Name = "Darkness", IsConsumed = false };
+            var beer4 = new Beer { BeerId = 4, Name = "Furious", IsConsumed = false };
+            var beerList = new List<Beer> { beer1, beer2, beer3, beer4 };
+
+            service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
+
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) { Messages = messageCoordinator };
+
+            //Act
+            view.Raise(x => x.Load += null, null, null);
+            presenter.ReleaseView();
+            messageCoordinator.Close();
+
+            //Assert
+            Assert.AreEqual(view.Object.Model.BeerCollection.Count, 3);
         }
     }
 }
