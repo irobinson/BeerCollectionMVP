@@ -8,7 +8,7 @@
 
     public class AddBeerPresenter : ModulePresenter<IViewAddBeer, Beer>
     {
-        private IBeerRepository beerRepository;
+        private readonly IBeerRepository beerRepository;
 
         public AddBeerPresenter(IViewAddBeer view) : this(view, ComponentFactory.GetComponent<IBeerRepository>())
         {

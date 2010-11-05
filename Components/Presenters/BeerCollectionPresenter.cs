@@ -10,7 +10,7 @@
 
     public class BeerCollectionPresenter : ModulePresenter<IViewBeerCollection, BeerCollectionModel>
     {
-        private IBeerRepository beerRepository;
+        private readonly IBeerRepository beerRepository;
 
         public BeerCollectionPresenter(IViewBeerCollection view) : this(view, ComponentFactory.GetComponent<IBeerRepository>())
         {
@@ -28,7 +28,7 @@
             View.Model.HasBeers = beers.Count > 0;
             View.Model.BeerCollection = beers;
             Messages.Publish(beers);
-            Messages.Subscribe<Beer>(b => beers.Add(b));
+            Messages.Subscribe<Beer>(beers.Add);
         }
     }
 }
