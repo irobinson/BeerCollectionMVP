@@ -24,11 +24,11 @@
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
-                    <controlKey />
+                    <controlKey>Edit</controlKey>
                     <controlSrc>DesktopModules/BeerCollection/AddBeer.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
-                    <controlType>View</controlType>
+                    <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
                   </moduleControl>
@@ -90,6 +90,31 @@
             </file>
           </files>
         </component>
+				<component type="Config">
+					<config>
+						<configFile>web.config</configFile>
+						<install>
+							<configuration>
+								<nodes>
+									<node path="/configuration/system.web/httpModules" action="update" key="name" collision="overwrite">
+										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" />
+									</node>
+									<node path="/configuration/system.webServer/modules" action="update" key="name" collision="overwrite">
+										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" preCondition="managedHandler" />
+									</node>
+								</nodes>
+							</configuration>
+						</install>
+						<uninstall>
+							<configuration>
+								<nodes>
+									<node path="/configuration/system.web/httpModules/add[@name='BeerCollectionModule']" action="remove"/>
+									<node path="/configuration/system.webServer/modules/add[@name='BeerCollectionModule']" action="remove" />
+								</nodes>
+							</configuration>
+						</uninstall>
+					</config>
+				</component>        
       </components>
     </package>
   </packages>

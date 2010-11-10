@@ -6,21 +6,27 @@
 
     public class BeerCollectionModule : IHttpModule
     {
-        static BeerCollectionModule()
-        {
-            if (ComponentFactory.Container == null)
-            {
-                ComponentFactory.Container = new SimpleContainer();
-            }
-            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>("BeerRepository", ComponentLifeStyleType.Transient);
-        }
+        private static volatile bool isBooted = false;
+        private static readonly object padlock = new object();
 
         public void Init(HttpApplication context)
         {
+            // Use double-check locking to ensure the ComponentFactory is only intialized once.
+            if (isBooted) return;
+            lock (padlock)
+            {
+                if (isBooted) return;
+                BootstrapComponentFactory();
+                isBooted = true;
+            }
         }
 
-        public void Dispose()
+        public void Dispose() { }
+
+        private static void BootstrapComponentFactory()
         {
-        } 
+            // Register components as 'Transient', so that a new instance is generated each time the type is requested.
+            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>("BeerRepository", ComponentLifeStyleType.Transient);
+        }
     }
 }
