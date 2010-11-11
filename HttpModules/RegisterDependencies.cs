@@ -6,21 +6,29 @@
 
     public class BeerCollectionModule : IHttpModule
     {
-        static BeerCollectionModule()
-        {
-            if (ComponentFactory.Container == null)
-            {
-                ComponentFactory.Container = new SimpleContainer();
-            }
-            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>("BeerRepository", ComponentLifeStyleType.Transient);
-        }
+        private static volatile bool isBooted;
+        private static readonly object Padlock = new object();
 
         public void Init(HttpApplication context)
         {
+            // Init is preferred over static constructor as it is called later (after ComponentFactory.Container is initialized)
+            // but has the drawback that it may be called twice.
+            // Use double-check locking to ensure the ComponentFactory is only intialized once.
+            if (isBooted) return;
+            lock (Padlock)
+            {
+                if (isBooted) return;
+                BootstrapComponentFactory();
+                isBooted = true;
+            }
         }
 
-        public void Dispose()
+        public void Dispose() { }
+
+        private static void BootstrapComponentFactory()
         {
-        } 
+            // Register components as 'Transient', so that a new instance is generated each time the type is requested.
+            ComponentFactory.Container.RegisterComponent<IBeerRepository, BeerRepository>("BeerRepository", ComponentLifeStyleType.Transient);
+        }
     }
 }
