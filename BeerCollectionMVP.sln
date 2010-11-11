@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
+Project("{00000000-0000-0000-0000-000000000000}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}"
 EndProject
