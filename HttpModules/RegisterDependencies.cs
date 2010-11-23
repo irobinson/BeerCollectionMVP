@@ -11,6 +11,8 @@
 
         public void Init(HttpApplication context)
         {
+            // Init is preferred over static constructor as it is called later (after ComponentFactory.Container is initialized)
+            // but has the drawback that it may be called twice.
             // Use double-check locking to ensure the ComponentFactory is only intialized once.
             if (isBooted) return;
             lock (padlock)
