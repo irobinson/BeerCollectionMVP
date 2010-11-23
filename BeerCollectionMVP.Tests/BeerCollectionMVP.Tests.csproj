@@ -54,12 +54,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetNuke">
-      <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\Dependencies\DotNetNuke\DotNetNuke.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="DotNetNuke.Web">
-      <HintPath>..\..\..\bin\DotNetNuke.Web.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DotNetNuke.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\DotNetNuke\DotNetNuke.Web.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gallio, Version=3.2.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -82,10 +83,9 @@
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="WebFormsMvp, Version=0.9.7.2, Culture=neutral, PublicKeyToken=537f18701145dff0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WebFormsMvp.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="WebFormsMvp">
+      <HintPath>..\Dependencies\WebFormsMVP\WebFormsMvp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
