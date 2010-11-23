@@ -14,15 +14,15 @@
         public ModuleActionCollection ModuleActions
         {
             get
-                var actions = new ModuleActionCollection
             {
+                var actions = new ModuleActionCollection();
+
+
                 ModuleActionCollection Actions = new ModuleActionCollection();
                 Actions.Add(ModuleContext.GetNextActionID(), "Add Beer",
                    ModuleActionType.AddContent, "", "add.gif", ModuleContext.EditUrl(), false, DotNetNuke.Security.SecurityAccessLevel.Edit,
                     true, false);
                 return Actions;
-            }
-        }
             }
         }
     }
