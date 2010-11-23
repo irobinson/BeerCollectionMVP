@@ -17,3 +17,4 @@ UpgradeLog.XML
 Database/sql
 TestResults
 Local.testsettings
+*.orig
