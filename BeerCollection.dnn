@@ -115,6 +115,31 @@
             </uninstall>
           </config>
         </component>
+				<component type="Config">
+					<config>
+						<configFile>web.config</configFile>
+						<install>
+							<configuration>
+								<nodes>
+									<node path="/configuration/system.web/httpModules" action="update" key="name" collision="overwrite">
+										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" />
+									</node>
+									<node path="/configuration/system.webServer/modules" action="update" key="name" collision="overwrite">
+										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" preCondition="managedHandler" />
+									</node>
+								</nodes>
+							</configuration>
+						</install>
+						<uninstall>
+							<configuration>
+								<nodes>
+									<node path="/configuration/system.web/httpModules/add[@name='BeerCollectionModule']" action="remove"/>
+									<node path="/configuration/system.webServer/modules/add[@name='BeerCollectionModule']" action="remove" />
+								</nodes>
+							</configuration>
+						</uninstall>
+					</config>
+				</component>        
       </components>
     </package>
   </packages>

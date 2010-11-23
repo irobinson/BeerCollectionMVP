@@ -6,14 +6,14 @@
 
     public class BeerCollectionModule : IHttpModule
     {
-        private static volatile bool isBooted;
-        private static readonly object Padlock = new object();
+        private static volatile bool isBooted = false;
+        private static readonly object padlock = new object();
 
         public void Init(HttpApplication context)
         {
-            // Init is preferred over static constructor as it is called later (after ComponentFactory.Container is initialized)
-            // but has the drawback that it may be called twice.
             // Use double-check locking to ensure the ComponentFactory is only intialized once.
+            if (isBooted) return;
+            lock (padlock)
             if (isBooted) return;
             lock (Padlock)
             {

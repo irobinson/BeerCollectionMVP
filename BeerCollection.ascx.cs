@@ -5,6 +5,7 @@
     using DotNetNuke.Web.Mvp;
     using WebFormsMvp;
     using DotNetNuke.Entities.Modules.Actions;
+    using DotNetNuke.Services.Localization;
     using DotNetNuke.Entities.Modules;
 
     [PresenterBinding(typeof(BeerCollectionPresenter))]
@@ -13,16 +14,15 @@
         public ModuleActionCollection ModuleActions
         {
             get
-            {
                 var actions = new ModuleActionCollection
-                                  {
-                                      {
-                                          ModuleContext.GetNextActionID(), "Add Beer", ModuleActionType.AddContent, "",
-                                          "add.gif", ModuleContext.EditUrl(), false,
-                                          DotNetNuke.Security.SecurityAccessLevel.Edit, true, false
-                                          }
-                                  };
-                return actions;
+            {
+                ModuleActionCollection Actions = new ModuleActionCollection();
+                Actions.Add(ModuleContext.GetNextActionID(), "Add Beer",
+                   ModuleActionType.AddContent, "", "add.gif", ModuleContext.EditUrl(), false, DotNetNuke.Security.SecurityAccessLevel.Edit,
+                    true, false);
+                return Actions;
+            }
+        }
             }
         }
     }
