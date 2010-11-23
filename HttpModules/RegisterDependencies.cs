@@ -14,8 +14,6 @@
             // Use double-check locking to ensure the ComponentFactory is only intialized once.
             if (isBooted) return;
             lock (padlock)
-            if (isBooted) return;
-            lock (Padlock)
             {
                 if (isBooted) return;
                 BootstrapComponentFactory();
