@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}"
-	ProjectSection(SolutionItems) = preProject
-		Dependencies\WebFormsMVP\WebFormsMvp.dll = Dependencies\WebFormsMVP\WebFormsMvp.dll
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Moq", "Moq", "{29B78CBC-A79D-4A75-87FB-F04E7DD5B596}"
 	ProjectSection(SolutionItems) = preProject
@@ -56,6 +53,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetNuke", "DotNetNuke", 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFormsMVP", "WebFormsMVP", "{01F72F75-019D-4756-B3F2-EDB6DBA4B589}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\WebFormsMVP\WebFormsMvp.dll = Dependencies\WebFormsMVP\WebFormsMvp.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
