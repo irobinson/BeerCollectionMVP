@@ -67,7 +67,7 @@
     <Reference Include="WebFormsMvp, Version=0.9.7.2, Culture=neutral, PublicKeyToken=537f18701145dff0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dnnsandbox\website\bin\WebFormsMvp.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

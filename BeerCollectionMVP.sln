@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{00000000-0000-0000-0000-000000000000}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerCollectionMVP", "BeerCollectionMVP.csproj", "{B9573EF5-CCE5-4C50-89B5-B6F503322832}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\WebFormsMVP\WebFormsMvp.dll = Dependencies\WebFormsMVP\WebFormsMvp.dll
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Moq", "Moq", "{29B78CBC-A79D-4A75-87FB-F04E7DD5B596}"
 	ProjectSection(SolutionItems) = preProject
@@ -46,6 +49,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.txt = readme.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetNuke", "DotNetNuke", "{A7F4E664-6620-4D34-8197-FC8120D64B9B}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\DotNetNuke\DotNetNuke.dll = Dependencies\DotNetNuke\DotNetNuke.dll
+		Dependencies\DotNetNuke\DotNetNuke.Web.dll = Dependencies\DotNetNuke\DotNetNuke.Web.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFormsMVP", "WebFormsMVP", "{01F72F75-019D-4756-B3F2-EDB6DBA4B589}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +78,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{29B78CBC-A79D-4A75-87FB-F04E7DD5B596} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 		{38D76225-D1C9-43EB-9C4D-83B0CF1424D0} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+		{A7F4E664-6620-4D34-8197-FC8120D64B9B} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+		{01F72F75-019D-4756-B3F2-EDB6DBA4B589} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 	EndGlobalSection
 EndGlobal
