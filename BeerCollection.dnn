@@ -4,12 +4,12 @@
       <friendlyName>BeerCollection</friendlyName>
       <description>WebFormsMVP Demo</description>
       <owner>
-        <name />
+        <name>Ian Robinson</name>
         <organization />
-        <url />
-        <email />
+        <url>http://irobinson.posterous.com</url>
+        <email>ian.andrew.robinson@gmail.com</email>
       </owner>
-      <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+      <license />
       <releaseNotes />
       <components>
         <component type="Module">
@@ -24,11 +24,11 @@
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
-                    <controlKey>Edit</controlKey>
+                    <controlKey />
                     <controlSrc>DesktopModules/BeerCollection/AddBeer.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle />
-                    <controlType>Edit</controlType>
+                    <controlTitle>Add Beer</controlTitle>
+                    <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
                   </moduleControl>
@@ -42,7 +42,7 @@
                     <controlKey />
                     <controlSrc>DesktopModules/BeerCollection/BeerCollection.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle />
+                    <controlTitle>Beer Collection</controlTitle>
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
@@ -58,7 +58,7 @@
                     <controlKey />
                     <controlSrc>DesktopModules/BeerCollection/BeersToDrinkSoon.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle />
+                    <controlTitle>Beers to Drink Soon</controlTitle>
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
@@ -76,19 +76,28 @@
             </assembly>
           </assemblies>
         </component>
-        <component type="File">
-          <files>
+        <component type="Script">
+          <scripts>
             <basePath>DesktopModules\BeerCollection</basePath>
-            <file>
-              <name>BeerCollection.ascx</name>
-            </file>
-            <file>
-              <name>BeersToDrinkSoon.ascx</name>
-            </file>
-            <file>
-              <name>AddBeer.ascx</name>
-            </file>
-          </files>
+            <script type="Install">
+              <path>Data</path>
+              <name>Install.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="UnInstall">
+              <path>Data</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/BeerCollection</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
         </component>
         <component type="Config">
           <config>
@@ -139,7 +148,7 @@
 							</configuration>
 						</uninstall>
 					</config>
-				</component>        
+				</component>
       </components>
     </package>
   </packages>

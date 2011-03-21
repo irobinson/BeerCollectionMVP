@@ -57,6 +57,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebFormsMVP", "WebFormsMVP"
 		Dependencies\WebFormsMVP\WebFormsMvp.dll = Dependencies\WebFormsMVP\WebFormsMvp.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScripts", "{30C7BC46-F7A9-476B-8445-861048A77C30}"
+	ProjectSection(SolutionItems) = preProject
+		BuildScripts\ModulePackage.targets = BuildScripts\ModulePackage.targets
+		BuildScripts\MSBuild.Community.Tasks.targets = BuildScripts\MSBuild.Community.Tasks.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -111,7 +111,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Data\Beer.sql" />
+    <None Include="Data\Uninstall.SqlDataProvider" />
+    <None Include="Data\Install.SqlDataProvider" />
     <Content Include="BeerCollection.ascx" />
     <Content Include="BeersToDrinkSoon.ascx" />
     <Content Include="AddBeer.ascx" />
@@ -154,11 +155,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <PropertyGroup>
+    <Extension>zip</Extension>
+    <DNNFileName>BeerCollection</DNNFileName>
+    <PackageName>BeerCollection</PackageName>
+    <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\BuildScripts</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="PackageModule">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

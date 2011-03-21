@@ -1,3 +1,4 @@
+
 obj
 bin
 _ReSharper.*
@@ -18,3 +19,4 @@ Database/sql
 TestResults
 Local.testsettings
 *.orig
+package*
