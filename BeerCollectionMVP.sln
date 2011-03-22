@@ -65,6 +65,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScript
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StringTemplate", "StringTemplate", "{E6F6D8DC-0DE5-4D40-A6D9-80F389433164}"
 	ProjectSection(SolutionItems) = preProject
+		Dependencies\StringTemplate\Antlr3.Runtime.Debug.dll = Dependencies\StringTemplate\Antlr3.Runtime.Debug.dll
 		Dependencies\StringTemplate\Antlr3.Runtime.dll = Dependencies\StringTemplate\Antlr3.Runtime.dll
 		Dependencies\StringTemplate\Antlr3.StringTemplate.dll = Dependencies\StringTemplate\Antlr3.StringTemplate.dll
 	EndProjectSection
