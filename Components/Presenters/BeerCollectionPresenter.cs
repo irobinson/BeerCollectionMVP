@@ -1,4 +1,9 @@
-﻿namespace BeerCollection.Components.Presenters
+﻿using System.IO;
+using System.Text;
+using Antlr3.ST;
+using DotNetNuke.Services.Localization;
+
+namespace BeerCollection.Components.Presenters
 {
     using System;
     using System.Collections.Generic;
@@ -23,6 +28,19 @@
         }
 
         void ViewLoad(Object sender, EventArgs eventArgs)
+        {
+            GetBeers();
+            GetBeerCollectionHtml();
+        }
+
+        private void GetBeerCollectionHtml()
+        {
+            var template = new StringTemplate(Localization.GetString("BeerCollectionTemplate", LocalResourceFile));
+            template.SetAttribute("beer", View.Model.BeerCollection);
+            View.Model.BeerCollectionHtml = template.ToString();
+        }
+
+        private void GetBeers()
         {
             List<Beer> beers = beerRepository.GetBeers().ToList();
             View.Model.HasBeers = beers.Count > 0;

@@ -53,6 +53,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.StringTemplate">
+      <HintPath>..\Dependencies\StringTemplate\Antlr3.StringTemplate.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetNuke">
       <HintPath>..\Dependencies\DotNetNuke\DotNetNuke.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +73,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\MbUnit\MbUnit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.0.10531.7, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\Moq\Moq.dll</HintPath>
@@ -91,6 +95,7 @@
   <ItemGroup>
     <Compile Include="BeersToDrinkSoonPresenterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringTemplateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

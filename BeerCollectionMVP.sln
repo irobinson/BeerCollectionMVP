@@ -63,6 +63,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScript
 		BuildScripts\MSBuild.Community.Tasks.targets = BuildScripts\MSBuild.Community.Tasks.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StringTemplate", "StringTemplate", "{E6F6D8DC-0DE5-4D40-A6D9-80F389433164}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\StringTemplate\Antlr3.Runtime.dll = Dependencies\StringTemplate\Antlr3.Runtime.dll
+		Dependencies\StringTemplate\Antlr3.StringTemplate.dll = Dependencies\StringTemplate\Antlr3.StringTemplate.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +92,6 @@ Global
 		{38D76225-D1C9-43EB-9C4D-83B0CF1424D0} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 		{A7F4E664-6620-4D34-8197-FC8120D64B9B} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 		{01F72F75-019D-4756-B3F2-EDB6DBA4B589} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+		{E6F6D8DC-0DE5-4D40-A6D9-80F389433164} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 	EndGlobalSection
 EndGlobal

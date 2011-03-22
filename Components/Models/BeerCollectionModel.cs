@@ -7,5 +7,6 @@
     {
         public List<Beer> BeerCollection { get; set; }
         public bool HasBeers { get; set; }
+        public string BeerCollectionHtml { get; set; }
     }
 }

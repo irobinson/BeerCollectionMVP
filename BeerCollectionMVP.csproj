@@ -39,6 +39,14 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>Dependencies\StringTemplate\Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Antlr3.StringTemplate">
+      <HintPath>Dependencies\StringTemplate\Antlr3.StringTemplate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DotNetNuke, Version=5.4.4.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dnnsandbox\website\bin\DotNetNuke.dll</HintPath>
@@ -109,13 +117,16 @@
     </Compile>
     <Compile Include="HttpModules\RegisterDependencies.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_LocalResources\BeerCollection.ascx.resx" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Data\Uninstall.SqlDataProvider" />
     <None Include="Data\Install.SqlDataProvider" />
     <Content Include="BeerCollection.ascx" />
     <Content Include="BeersToDrinkSoon.ascx" />
     <Content Include="AddBeer.ascx" />
+    <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BeerCollection.dnn" />
