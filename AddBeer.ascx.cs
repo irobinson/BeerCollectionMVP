@@ -13,22 +13,25 @@
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            SubmitButton.Click += SubmitButton_Click;
+            SubmitButton.Click += SubmitButtonClick;
+            DotNetNuke.Framework.jQuery.RequestRegistration();
         }
 
         public event EventHandler Submit;
 
-        private void SubmitButton_Click(object sender, EventArgs e)
+        private void SubmitButtonClick(object sender, EventArgs e)
         {
             decimal abv;
             Decimal.TryParse(BeerAbvTextBox.Text, out abv);
+            DateTime drinkBy;
+            DateTime.TryParse(DrinkByDateTextBox.Text, out drinkBy);
 
             Model = new Beer()
                         {
                             AlcoholPercentageByVolume = abv,
                             Description = BeerDescriptionTextBox.Text,
-                            DrinkBy = DateTime.Now.AddMonths(6),
-                            IsConsumed = false,
+                            DrinkBy = drinkBy,
+                            IsConsumed = ConsumedCheckBox.Checked,
                             Name = BeerNameTextBox.Text
                         };
 
