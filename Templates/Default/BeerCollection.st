@@ -1,4 +1,4 @@
-﻿<h2>My Beer Collection</h2>
+﻿<p>$if(user)$$user.DisplayName$'s$else$A$endif$ Beer Collection</p>
 <table class="beer-collection">
   <thead>
     <tr>
