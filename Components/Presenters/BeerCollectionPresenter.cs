@@ -1,7 +1,5 @@
-﻿using System.IO;
-using System.Text;
-using Antlr3.ST;
-using DotNetNuke.Services.Localization;
+﻿using BeerCollection.Components.Templating;
+using DotNetNuke.Entities.Users;
 
 namespace BeerCollection.Components.Presenters
 {
@@ -29,24 +27,24 @@ namespace BeerCollection.Components.Presenters
 
         void ViewLoad(Object sender, EventArgs eventArgs)
         {
-            GetBeers();
-            GetBeerCollectionHtml();
-        }
-
-        private void GetBeerCollectionHtml()
-        {
-            var template = new StringTemplate(Localization.GetString("BeerCollectionTemplate", LocalResourceFile));
-            template.SetAttribute("beer", View.Model.BeerCollection);
-            View.Model.BeerCollectionHtml = template.ToString();
-        }
-
-        private void GetBeers()
-        {
             List<Beer> beers = beerRepository.GetBeers().ToList();
             View.Model.HasBeers = beers.Count > 0;
             View.Model.BeerCollection = beers;
+
             Messages.Publish(beers);
             Messages.Subscribe<Beer>(beers.Add);
+
+            View.Model.BeerCollectionHtml = this.GetTemplate();
+        }
+        
+        private string GetTemplate()
+        {
+            var data = new Dictionary<string, object>
+                           {
+                               {"beer", View.Model.BeerCollection},
+                               {"user", new UserController().GetUser(this.PortalId, this.UserId)}
+                           };
+            return Template.RenderTemplate("BeerCollection", data);
         }
     }
 }

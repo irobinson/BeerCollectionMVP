@@ -82,6 +82,9 @@
     <Compile Include="Components\Models\BeerCollectionModel.cs" />
     <Compile Include="Components\Presenters\BeersToDrinkSoonPresenter.cs" />
     <Compile Include="Components\Presenters\AddBeerPresenter.cs" />
+    <Compile Include="Components\Templating\DataRenderers\BasicFormatRenderer.cs" />
+    <Compile Include="Components\Templating\DataRenderers\DateRenderer.cs" />
+    <Compile Include="Components\Templating\Template.cs" />
     <Compile Include="Components\Views\IViewAddBeer.cs" />
     <Compile Include="Components\Views\IViewBeersToDrinkSoon.cs" />
     <Compile Include="Data\BeerRepository.cs" />
@@ -118,7 +121,9 @@
     <Compile Include="HttpModules\RegisterDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\BeerCollection.ascx.resx" />
+    <None Include="Templates\Default\BeerCollection.st" />
+    <None Include="Templates\Default\BeersToDrinkSoon.st" />
+    <None Include="Templates\Default\link.st" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Uninstall.SqlDataProvider" />

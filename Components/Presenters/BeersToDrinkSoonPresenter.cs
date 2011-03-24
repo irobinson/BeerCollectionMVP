@@ -1,4 +1,7 @@
-﻿namespace BeerCollection.Components.Presenters
+﻿using BeerCollection.Components.Templating;
+using DotNetNuke.Entities.Users;
+
+namespace BeerCollection.Components.Presenters
 {
     using System;
     using System.Collections.Generic;
@@ -31,6 +34,17 @@
         {
             View.Model.BeerCollection = beers.OrderBy(b => b.DrinkBy).Take(3).Where(b => !b.IsConsumed).ToList();
             View.Model.HasBeers = View.Model.BeerCollection.Count > 0;
+            View.Model.BeerCollectionHtml = this.GetTemplate();
+        }
+
+        private string GetTemplate()
+        {
+            var data = new Dictionary<string, object>
+                           {
+                               {"beers", View.Model.BeerCollection},
+                               {"user", new UserController().GetUser(this.PortalId, this.UserId)}
+                           };
+            return Template.RenderTemplate("BeersToDrinkSoon", data);
         }
     }
 }
