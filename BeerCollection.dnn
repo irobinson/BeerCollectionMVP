@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="BeerCollection" type="Module" version="1.0.0">
+    <package name="BeerCollection" type="Module" version="1.0.1">
       <friendlyName>BeerCollection</friendlyName>
       <description>WebFormsMVP Demo</description>
       <owner>
@@ -48,6 +48,25 @@
                     <helpUrl />
                     <viewOrder>0</viewOrder>
                   </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/BeerCollection/BeerCollectionSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Beer Collection Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Edit</controlKey>
+                    <controlSrc>DesktopModules/BeerCollection/AddBeer.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Add Beer</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                  </moduleControl>
                 </moduleControls>
               </moduleDefinition>
               <moduleDefinition>
@@ -63,6 +82,16 @@
                     <iconFile />
                     <helpUrl />
                   </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/BeerCollection/BeersToDrinkSoonSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Beers To Drink Soon Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
                 </moduleControls>
               </moduleDefinition>
             </moduleDefinitions>
@@ -73,6 +102,15 @@
             <basePath>bin</basePath>
             <assembly>
               <name>BeerCollection.dll</name>
+            </assembly>
+            <assembly>
+              <name>Antlr3.Runtime.dll</name>
+            </assembly>
+            <assembly>
+              <name>Antlr3.Runtime.Debug.dll</name>
+            </assembly>
+            <assembly>
+              <name>Antlr3.StringTemplate.dll</name>
             </assembly>
           </assemblies>
         </component>
@@ -124,31 +162,6 @@
             </uninstall>
           </config>
         </component>
-				<component type="Config">
-					<config>
-						<configFile>web.config</configFile>
-						<install>
-							<configuration>
-								<nodes>
-									<node path="/configuration/system.web/httpModules" action="update" key="name" collision="overwrite">
-										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" />
-									</node>
-									<node path="/configuration/system.webServer/modules" action="update" key="name" collision="overwrite">
-										<add name="BeerCollectionModule" type="BeerCollection.HttpModules.BeerCollectionModule, BeerCollection" preCondition="managedHandler" />
-									</node>
-								</nodes>
-							</configuration>
-						</install>
-						<uninstall>
-							<configuration>
-								<nodes>
-									<node path="/configuration/system.web/httpModules/add[@name='BeerCollectionModule']" action="remove"/>
-									<node path="/configuration/system.webServer/modules/add[@name='BeerCollectionModule']" action="remove" />
-								</nodes>
-							</configuration>
-						</uninstall>
-					</config>
-				</component>
       </components>
     </package>
   </packages>
