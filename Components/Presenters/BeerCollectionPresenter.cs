@@ -32,8 +32,14 @@ namespace BeerCollection.Components.Presenters
             View.Model.BeerCollection = beers;
 
             Messages.Publish(beers);
-            Messages.Subscribe<Beer>(beers.Add);
+            Messages.Subscribe<Beer>(AddBeer);
 
+            View.Model.BeerCollectionHtml = this.GetTemplate();
+        }
+
+        private void AddBeer(Beer beer)
+        {
+            View.Model.BeerCollection.Add(beer);
             View.Model.BeerCollectionHtml = this.GetTemplate();
         }
         
