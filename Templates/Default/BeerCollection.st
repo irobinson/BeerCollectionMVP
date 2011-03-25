@@ -1,4 +1,4 @@
-﻿<p>$if(user)$$user.DisplayName$'s$else$A$endif$ Beer Collection</p>
+<p>$if(user)$$user.DisplayName$'s$else$The$endif$ Beer Collection</p>
 <table class="beer-collection">
   <thead>
     <tr>
@@ -11,7 +11,7 @@
       <th>Picture</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody>  
     $beer:{ b |
     <tr>
       <td>$b.Name$</td>
@@ -28,7 +28,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="7">* footnote!</td>
+      <td colspan="7">* $user.FirstName$ has only been drinking beer since $user.Membership.CreatedDate;format="MMM dd, yyyy"$!</td>
     </tr>
   </tfoot>
 </table>

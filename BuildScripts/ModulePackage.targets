@@ -28,11 +28,10 @@
       <InstallInclude Include="**\*.css" />
       <InstallInclude Include="**\*.html" />
       <InstallInclude Include="**\*.htm" />
+      <InstallInclude Include="**\*.st" />
+      <InstallInclude Include="**\*.js" />
       <InstallInclude Include="**\*.resx" />
       <InstallInclude Include="**\*.aspx" />
-      <InstallInclude Include="**\*evaluation.mash.min.js" />
-      <InstallInclude Include="**\*evaluation.min.js" />
-      <InstallInclude Include="**\*evaluation.yui.js" />
       <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;" />
       <InstallInclude Include="**\Images\**" />
       <InstallInclude Include="**\Tools\wkhtmltopdf\**" />
@@ -45,6 +44,7 @@
       <SourceInclude Include="**\*.xsl" />
       <SourceInclude Include="**\*.html" />
       <SourceInclude Include="**\*.htm" />
+      <SourceInclude Include="**\*.st" />
       <SourceInclude Include="**\*.resx" />
       <SourceInclude Include="**\*.xml" Exclude="**\obj\**;**\_ReSharper*\**;" />
       <SourceInclude Include="**\*.aspx" />
@@ -74,6 +74,9 @@
 
 
     <Copy SourceFiles="$(MSBuildDnnBinPath)\$(AssemblyName).dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.Runtime.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.Runtime.Debug.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.StringTemplate.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
     <Copy SourceFiles="@(SqlDataProviderFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package\%(RecursiveDir)" />
     <Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
 
@@ -99,6 +102,9 @@
     <RemoveDir Directories ="$(MSBuildProjectDirectory)\ResourcesZip" />
 
     <Copy SourceFiles="$(MSBuildDnnBinPath)\$(AssemblyName).dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.Runtime.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.Runtime.Debug.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\Antlr3.StringTemplate.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
     <Copy SourceFiles="@(SqlDataProviderFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package\%(RecursiveDir)" />
     <Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
 

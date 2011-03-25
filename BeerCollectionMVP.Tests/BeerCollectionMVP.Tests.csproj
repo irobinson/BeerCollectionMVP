@@ -97,7 +97,6 @@
     </Reference>
     <Reference Include="WebFormsMvp">
       <HintPath>..\Dependencies\WebFormsMVP\WebFormsMvp.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

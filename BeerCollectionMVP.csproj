@@ -43,18 +43,21 @@
       <HintPath>Dependencies\StringTemplate\Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Antlr3.Runtime.Debug, Version=3.3.0.7239, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\StringTemplate\Antlr3.Runtime.Debug.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Antlr3.StringTemplate">
       <HintPath>Dependencies\StringTemplate\Antlr3.StringTemplate.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DotNetNuke, Version=5.4.4.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dnnsandbox\website\bin\DotNetNuke.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DotNetNuke.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dnnsandbox\website\bin\DotNetNuke.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -74,7 +77,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WebFormsMvp, Version=0.9.7.2, Culture=neutral, PublicKeyToken=537f18701145dff0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dnnsandbox\website\bin\WebFormsMvp.dll</HintPath>
+      <HintPath>Dependencies\WebFormsMVP\WebFormsMvp.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -87,6 +90,13 @@
     <Compile Include="Components\Templating\Template.cs" />
     <Compile Include="Components\Views\IViewAddBeer.cs" />
     <Compile Include="Components\Views\IViewBeersToDrinkSoon.cs" />
+    <Compile Include="BeersToDrinkSoonSettings.ascx.cs">
+      <DependentUpon>BeersToDrinkSoonSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeersToDrinkSoonSettings.ascx.designer.cs">
+      <DependentUpon>BeersToDrinkSoonSettings.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Data\BeerRepository.cs" />
     <Compile Include="Data\Db.designer.cs">
       <AutoGen>True</AutoGen>
@@ -119,6 +129,13 @@
       <DependentUpon>AddBeer.ascx</DependentUpon>
     </Compile>
     <Compile Include="HttpModules\RegisterDependencies.cs" />
+    <Compile Include="BeerCollectionSettings.ascx.cs">
+      <DependentUpon>BeerCollectionSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeerCollectionSettings.ascx.designer.cs">
+      <DependentUpon>BeerCollectionSettings.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Templates\Default\BeerCollection.st" />
@@ -126,6 +143,18 @@
     <None Include="Templates\Default\link.st" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BeerCollectionSettings.ascx" />
+    <Content Include="BeersToDrinkSoonSettings.ascx" />
+    <Content Include="Resources\css\linenumbers.css" />
+    <Content Include="Resources\css\xmlcolors.css" />
+    <Content Include="Resources\js\codemirror\codemirror.js" />
+    <Content Include="Resources\js\codemirror\editor.js" />
+    <Content Include="Resources\js\codemirror\parsexml.js" />
+    <Content Include="Resources\js\codemirror\select.js" />
+    <Content Include="Resources\js\codemirror\stringstream.js" />
+    <Content Include="Resources\js\codemirror\tokenize.js" />
+    <Content Include="Resources\js\codemirror\undo.js" />
+    <Content Include="Resources\js\codemirror\util.js" />
     <None Include="Data\Uninstall.SqlDataProvider" />
     <None Include="Data\Install.SqlDataProvider" />
     <Content Include="BeerCollection.ascx" />
@@ -155,18 +184,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57757</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://dnn544.dev/DesktopModules/SimpleFeedAggregator</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://dnn544.dev</IISAppRootUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
