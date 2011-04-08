@@ -9,13 +9,13 @@
         public override void LoadSettings()
         {
             base.LoadSettings();
-            this.TemplateTextBox.Text = Template.GetTemplate("BeerCollection");
+            this.TemplateTextBox.Text = new TemplateController().GetTemplate("BeerCollection");
         }
 
         public override void UpdateSettings()
         {
             base.UpdateSettings();
-            File.WriteAllText(Template.DefaultTemplatePath + "\\BeerCollection.st", this.TemplateTextBox.Text);
+            File.WriteAllText(new TemplateController().DefaultTemplatePath + "\\BeerCollection.st", this.TemplateTextBox.Text);
         }
     }
 }

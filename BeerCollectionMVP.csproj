@@ -52,6 +52,9 @@
       <HintPath>Dependencies\StringTemplate\Antlr3.StringTemplate.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="BrandonHaynes.ModelAdapter">
+      <HintPath>Dependencies\LinqToSqlModalAdapter\BrandonHaynes.ModelAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetNuke, Version=5.4.4.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -82,11 +85,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\UserProvider.cs" />
+    <Compile Include="Common\Util.cs" />
     <Compile Include="Components\Models\BeerCollectionModel.cs" />
     <Compile Include="Components\Presenters\BeersToDrinkSoonPresenter.cs" />
     <Compile Include="Components\Presenters\AddBeerPresenter.cs" />
+    <Compile Include="Common\IUserController.cs" />
     <Compile Include="Components\Templating\DataRenderers\BasicFormatRenderer.cs" />
     <Compile Include="Components\Templating\DataRenderers\DateRenderer.cs" />
+    <Compile Include="Components\Templating\ITemplateController.cs" />
     <Compile Include="Components\Templating\Template.cs" />
     <Compile Include="Components\Views\IViewAddBeer.cs" />
     <Compile Include="Components\Views\IViewBeersToDrinkSoon.cs" />
@@ -128,7 +135,6 @@
     <Compile Include="AddBeer.ascx.designer.cs">
       <DependentUpon>AddBeer.ascx</DependentUpon>
     </Compile>
-    <Compile Include="HttpModules\RegisterDependencies.cs" />
     <Compile Include="BeerCollectionSettings.ascx.cs">
       <DependentUpon>BeerCollectionSettings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

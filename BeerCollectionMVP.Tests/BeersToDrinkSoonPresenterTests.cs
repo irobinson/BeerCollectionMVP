@@ -3,8 +3,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using BeerCollection;
+    using BeerCollection.Common;
     using BeerCollection.Components.Models;
     using BeerCollection.Components.Presenters;
+    using BeerCollection.Components.Templating;
     using BeerCollection.Data;
     using MbUnit.Framework;
     using Moq;
@@ -17,15 +19,19 @@
         private Mock<IBeerRepository> service;
         private BeersToDrinkSoonPresenter presenter;
         private MessageCoordinator messageCoordinator;
+        private Mock<ITemplateController> templateController;
+        private Mock<IUserProvider> user;
 
         // [MethodName]_[StateUnderTest]_[ExpectedBehavior]
 
         [SetUp]
         public void SetUp()
         {
-           view = new Mock<IViewBeersToDrinkSoon>();
-           service = new Mock<IBeerRepository>();
-           messageCoordinator = new MessageCoordinator();
+            view = new Mock<IViewBeersToDrinkSoon>();
+            service = new Mock<IBeerRepository>();
+            user = new Mock<IUserProvider>();
+            messageCoordinator = new MessageCoordinator();
+            templateController = new Mock<ITemplateController>();
         }
 
         [TearDown]
@@ -40,7 +46,7 @@
             // Arrange
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
             service.Setup(x => x.GetBeers()).Returns(new List<Beer>().AsQueryable); 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) {Messages = messageCoordinator};
 
             // Act
             view.Raise(x => x.Load += null, null, null);
@@ -57,7 +63,7 @@
             //Arrange
             view.Setup(v => v.Model).Returns(new BeerCollectionModel());
 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) {Messages = messageCoordinator};
             var beerList = new List<Beer> {new Beer {BeerId = 1, Name = "Test Beer"}};
             
             //Act
@@ -82,7 +88,7 @@
 
             service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) {Messages = messageCoordinator};
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) {Messages = messageCoordinator};
 
             //Act
             view.Raise(x => x.Load += null, null, null);
@@ -107,7 +113,7 @@
 
             service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) { Messages = messageCoordinator };
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) { Messages = messageCoordinator };
 
             //Act
             view.Raise(x => x.Load += null, null, null);
@@ -131,7 +137,7 @@
 
             service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) { Messages = messageCoordinator };
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) { Messages = messageCoordinator };
 
             //Act
             view.Raise(x => x.Load += null, null, null);
@@ -155,7 +161,7 @@
 
             service.Setup(s => s.GetBeers()).Returns(beerList.AsQueryable());
 
-            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object) { Messages = messageCoordinator };
+            presenter = new BeersToDrinkSoonPresenter(view.Object, service.Object, templateController.Object, user.Object) { Messages = messageCoordinator };
 
             //Act
             view.Raise(x => x.Load += null, null, null);

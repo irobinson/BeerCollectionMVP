@@ -23,7 +23,7 @@ namespace BeerCollection.Data
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="beercollection")]
-	public partial class DbDataContext : System.Data.Linq.DataContext
+	public partial class DbDataContext : BrandonHaynes.ModelAdapter.DotNetNukeDataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();

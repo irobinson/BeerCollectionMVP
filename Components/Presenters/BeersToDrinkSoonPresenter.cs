@@ -1,27 +1,30 @@
 ﻿using BeerCollection.Components.Templating;
-using DotNetNuke.Entities.Users;
 
 namespace BeerCollection.Components.Presenters
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Common;
     using Data;
-    using DotNetNuke.ComponentModel;
     using DotNetNuke.Web.Mvp;
     using Models;
 
     public class BeersToDrinkSoonPresenter : ModulePresenter<IViewBeersToDrinkSoon, BeerCollectionModel>
     {    
         private readonly IBeerRepository beerRepository;
+        private readonly ITemplateController templateController;
+        private readonly IUserProvider userProvider;
 
-        public BeersToDrinkSoonPresenter(IViewBeersToDrinkSoon view) : this(view, ComponentFactory.GetComponent<IBeerRepository>())
+        public BeersToDrinkSoonPresenter(IViewBeersToDrinkSoon view) : this(view, Util.GetRepository(), Util.GetTemplateController(), Util.GetUserProvider())
         {
         }
 
-        public BeersToDrinkSoonPresenter (IViewBeersToDrinkSoon view, IBeerRepository repository) : base(view)
+        public BeersToDrinkSoonPresenter(IViewBeersToDrinkSoon view, IBeerRepository repository, ITemplateController template, IUserProvider user) : base(view)
         {
             beerRepository = repository;
+            templateController = template;
+            userProvider = user;
             this.View.Load += ViewLoad;
         }
 
@@ -42,9 +45,9 @@ namespace BeerCollection.Components.Presenters
             var data = new Dictionary<string, object>
                            {
                                {"beers", View.Model.BeerCollection},
-                               {"user", new UserController().GetUser(this.PortalId, this.UserId)}
+                               {"user", userProvider.GetUser(this.PortalId, this.UserId)}
                            };
-            return Template.RenderTemplate("BeersToDrinkSoon", data);
+            return templateController.RenderTemplate("BeersToDrinkSoon", data);
         }
     }
 }

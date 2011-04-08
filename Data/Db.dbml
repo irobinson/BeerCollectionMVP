@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="beercollection" Class="DbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="beercollection" Class="DbDataContext" BaseType="BrandonHaynes.ModelAdapter.DotNetNukeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="ConnectionString" ConnectionString="Data Source=(local);Initial Catalog=beercollection;Integrated Security=True" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Beer" Member="Beers">
     <Type Name="Beer">

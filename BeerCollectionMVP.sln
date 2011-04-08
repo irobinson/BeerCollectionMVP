@@ -70,6 +70,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StringTemplate", "StringTem
 		Dependencies\StringTemplate\Antlr3.StringTemplate.dll = Dependencies\StringTemplate\Antlr3.StringTemplate.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinqToSqlModalAdapter", "LinqToSqlModalAdapter", "{E1E2446F-86F1-4F7C-B76A-01B30F9821C6}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\LinqToSqlModalAdapter\BrandonHaynes.ModelAdapter.dll = Dependencies\LinqToSqlModalAdapter\BrandonHaynes.ModelAdapter.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,5 +99,6 @@ Global
 		{A7F4E664-6620-4D34-8197-FC8120D64B9B} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 		{01F72F75-019D-4756-B3F2-EDB6DBA4B589} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 		{E6F6D8DC-0DE5-4D40-A6D9-80F389433164} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
+		{E1E2446F-86F1-4F7C-B76A-01B30F9821C6} = {3981E4B0-2D31-4CDC-BF9C-50DEE1A97AA5}
 	EndGlobalSection
 EndGlobal
