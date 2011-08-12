@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="BeerCollection" type="Module" version="1.0.1">
+    <package name="BeerCollection" type="Module" version="1.0.2">
       <friendlyName>BeerCollection</friendlyName>
       <description>WebFormsMVP Demo</description>
       <owner>
@@ -137,6 +137,7 @@
             </resourceFile>
           </resourceFiles>
         </component>
+        <!--
         <component type="Config">
           <config>
             <configFile>web.config</configFile>
@@ -150,7 +151,8 @@
             </uninstall>
           </config>
         </component>
-      </components>
+        -->
+        </components>
     </package>
   </packages>
 </dotnetnuke>
